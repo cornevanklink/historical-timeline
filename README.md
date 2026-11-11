@@ -18,11 +18,11 @@ In the repository settings, open **Pages**, select the branch containing the sit
 
 ## Add or edit events
 
-Edit `events.json`. Each event has a signed `year` (negative years are BCE), a `category`, and Dutch (`nl`) and English (`en`) versions of its `title` and `summary`:
+Edit `events.json`. Each event has a `category` and Dutch (`nl`) and English (`en`) versions of its `title` and `summary`. Use a signed `year` (negative years are BCE) for year-only events, or use `date` for a specific date. Add `endDate` to show a period; both date fields use `YYYY-MM-DD`:
 
 ```json
 {
-	"year": 1969,
+	"date": "1969-07-20",
 	"category": "science",
 	"title": {
 		"nl": "Eerste maanlanding",
@@ -35,4 +35,22 @@ Edit `events.json`. Each event has a signed `year` (negative years are BCE), a `
 }
 ```
 
-Events are displayed chronologically; the year is formatted as BCE or v.Chr. for negative years. Available categories are `civilization`, `science`, `conflict`, and `culture`.
+For an event that spans a period, include both dates:
+
+```json
+{
+  "date": "1914-07-28",
+  "endDate": "1918-11-11",
+  "category": "conflict",
+  "title": {
+    "nl": "De Eerste Wereldoorlog",
+    "en": "The First World War"
+  },
+  "summary": {
+    "nl": "Een conflict dat Europa en de wereld ingrijpend verandert.",
+    "en": "A conflict that profoundly reshapes Europe and the world."
+  }
+}
+```
+
+Events are displayed chronologically, with larger time gaps shown as additional vertical space. The scale is compressed to keep long historical spans readable. Year-only events format negative years as BCE or v.Chr.; dated events show localized dates. The light/dark theme can be selected in the header and is saved in the browser. Available categories are `civilization`, `science`, `conflict`, and `culture`.

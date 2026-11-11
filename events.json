@@ -120,11 +120,12 @@
     }
   },
   {
-    "year": 1914,
+    "date": "1914-07-28",
+    "endDate": "1918-11-11",
     "category": "conflict",
     "title": {
-      "nl": "De Eerste Wereldoorlog breekt uit",
-      "en": "The First World War begins"
+      "nl": "De Eerste Wereldoorlog",
+      "en": "The First World War"
     },
     "summary": {
       "nl": "Een conflict tussen Europese mogendheden groeit uit tot een wereldoorlog die samenlevingen, grenzen en de internationale orde ingrijpend verandert.",
@@ -144,7 +145,7 @@
     }
   },
   {
-    "year": 1969,
+    "date": "1969-07-20",
     "category": "science",
     "title": {
       "nl": "De eerste mensen lopen op de maan",

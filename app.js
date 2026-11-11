@@ -16,6 +16,10 @@ const translations = {
     count: (shown, total) => `${shown} OF ${total} MOMENTS`,
     categories: { civilization: "Civilization", science: "Science", conflict: "Conflict", culture: "Culture" },
     loadError: "The timeline could not be loaded. Check that events.json is available and valid.",
+    themeLabel: "Choose color theme",
+    lightMode: "Light",
+    darkMode: "Dark",
+    dateRangeSeparator: " – ",
     bce: "BCE",
     locale: "en"
   },
@@ -36,6 +40,10 @@ const translations = {
     count: (shown, total) => `${shown} VAN ${total} MOMENTEN`,
     categories: { civilization: "Beschaving", science: "Wetenschap", conflict: "Conflict", culture: "Cultuur" },
     loadError: "De tijdlijn kon niet worden geladen. Controleer of events.json beschikbaar en geldig is.",
+    themeLabel: "Kleurenthema kiezen",
+    lightMode: "Licht",
+    darkMode: "Donker",
+    dateRangeSeparator: " tot ",
     bce: "v.Chr.",
     locale: "nl"
   }
@@ -47,10 +55,38 @@ const searchInput = document.querySelector("#search");
 const eventCount = document.querySelector("#event-count");
 const emptyState = document.querySelector("#empty-state");
 const loadMessage = document.querySelector("#load-message");
+const themeSwitch = document.querySelector("#theme-switch");
+const themeColor = document.querySelector('meta[name="theme-color"]');
 let events = [];
 let language = "en";
 let activeCategory = "all";
 let searchTerm = "";
+let theme = readThemePreference();
+
+function readThemePreference() {
+  try {
+    return localStorage.getItem("timeline-theme") === "dark" ? "dark" : "light";
+  } catch (error) {
+    console.error("Could not read the saved theme preference.", error);
+    return "light";
+  }
+}
+
+function setTheme(nextTheme) {
+  theme = nextTheme;
+  document.documentElement.dataset.theme = theme;
+  themeColor.content = theme === "dark" ? "#191d1b" : "#f2f1ec";
+  themeSwitch.querySelectorAll("[data-theme-choice]").forEach((button) => {
+    const isActive = button.dataset.themeChoice === theme;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+  try {
+    localStorage.setItem("timeline-theme", theme);
+  } catch (error) {
+    console.error("Could not save the theme preference.", error);
+  }
+}
 
 function localizePage() {
   const copy = translations[language];
@@ -70,6 +106,7 @@ function localizePage() {
     button.setAttribute("aria-pressed", String(isActive));
   });
 
+  themeSwitch.setAttribute("aria-label", copy.themeLabel);
   renderFilters();
   renderEvents();
 }
@@ -102,26 +139,109 @@ function formatYear(year) {
   return year < 0 ? `${formattedYear} ${copy.bce}` : formattedYear;
 }
 
+function dateParts(value) {
+  if (typeof value !== "string") return null;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return null;
+
+  const [, yearText, monthText, dayText] = match;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysInMonth = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  if (year === 0 || month < 1 || month > 12 || day < 1 || day > daysInMonth[month - 1]) return null;
+  return { year, month, day };
+}
+
+function formatDate(value) {
+  const { year, month, day } = dateParts(value);
+  const date = new Date(0);
+  date.setUTCFullYear(year, month - 1, day);
+  date.setUTCHours(0, 0, 0, 0);
+  return new Intl.DateTimeFormat(translations[language].locale, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC"
+  }).format(date);
+}
+
+function validateEvents(data) {
+  if (!Array.isArray(data)) throw new Error("events.json must contain an array");
+  data.forEach((event, index) => {
+    if (!event || typeof event !== "object" || Array.isArray(event)) {
+      throw new Error(`Event ${index + 1} must be an object`);
+    }
+    if (event.date !== undefined && !dateParts(event.date)) {
+      throw new Error(`Event ${index + 1} has an invalid date; use YYYY-MM-DD`);
+    }
+    if (event.endDate !== undefined) {
+      if (!dateParts(event.endDate)) {
+        throw new Error(`Event ${index + 1} has an invalid endDate; use YYYY-MM-DD`);
+      }
+      if (event.date === undefined || event.endDate < event.date) {
+        throw new Error(`Event ${index + 1} endDate must be on or after its date`);
+      }
+    }
+    if (event.date === undefined && !Number.isInteger(event.year)) {
+      throw new Error(`Event ${index + 1} must have a year or date`);
+    }
+  });
+  return data;
+}
+
+function eventSortKey(event) {
+  if (event.date) {
+    const { year, month, day } = dateParts(event.date);
+    return year * 372 + month * 31 + day;
+  }
+  return event.year * 372;
+}
+
+function spacingForGap(first, second) {
+  const yearsApart = Math.max(0, (eventSortKey(second) - eventSortKey(first)) / 372);
+  return Math.min(112, Math.max(0, Math.sqrt(yearsApart) * 6 - 6));
+}
+
 function renderEvents() {
   const copy = translations[language];
   const matchingEvents = events
     .filter((event) => activeCategory === "all" || event.category === activeCategory)
     .filter((event) => {
-      const text = `${event.title[language]} ${event.summary[language]} ${event.year} ${event.category}`;
+      const text = `${event.title[language]} ${event.summary[language]} ${event.date ?? ""} ${event.endDate ?? ""} ${event.year ?? ""} ${event.category}`;
       return text.toLocaleLowerCase(language).includes(searchTerm);
     })
-    .sort((first, second) => first.year - second.year);
+    .sort((first, second) => eventSortKey(first) - eventSortKey(second));
 
   timeline.replaceChildren(...matchingEvents.map((event, index) => {
     const item = document.createElement("li");
     item.className = "timeline-item";
     item.dataset.category = event.category;
     item.style.animationDelay = `${Math.min(index, 12) * 35}ms`;
+    item.style.setProperty("--time-gap", `${index < matchingEvents.length - 1 ? spacingForGap(event, matchingEvents[index + 1]) : 0}px`);
 
-    const year = document.createElement("time");
-    year.className = "timeline-year";
-    year.dateTime = String(event.year);
-    year.textContent = formatYear(event.year);
+    const dateLabel = document.createElement("div");
+    dateLabel.className = "timeline-year";
+    if (event.date) {
+      const start = document.createElement("time");
+      start.dateTime = event.date;
+      start.textContent = formatDate(event.date);
+      dateLabel.append(start);
+      if (event.endDate && event.endDate !== event.date) {
+        const separator = document.createElement("span");
+        separator.textContent = copy.dateRangeSeparator;
+        const end = document.createElement("time");
+        end.dateTime = event.endDate;
+        end.textContent = formatDate(event.endDate);
+        dateLabel.append(separator, end);
+      }
+    } else {
+      const year = document.createElement("time");
+      year.dateTime = String(event.year);
+      year.textContent = formatYear(event.year);
+      dateLabel.append(year);
+    }
 
     const dot = document.createElement("span");
     dot.className = "timeline-dot";
@@ -137,7 +257,7 @@ function renderEvents() {
     const summary = document.createElement("p");
     summary.textContent = event.summary[language];
     card.append(category, title, summary);
-    item.append(year, dot, card);
+    item.append(dateLabel, dot, card);
     return item;
   }));
 
@@ -150,6 +270,10 @@ document.querySelectorAll("[data-language]").forEach((button) => {
     language = button.dataset.language;
     localizePage();
   });
+});
+
+themeSwitch.querySelectorAll("[data-theme-choice]").forEach((button) => {
+  button.addEventListener("click", () => setTheme(button.dataset.themeChoice));
 });
 
 searchInput.addEventListener("input", () => {
@@ -170,8 +294,7 @@ fetch("events.json")
     return response.json();
   })
   .then((data) => {
-    if (!Array.isArray(data)) throw new Error("events.json must contain an array");
-    events = data;
+    events = validateEvents(data);
     localizePage();
   })
   .catch((error) => {
@@ -179,3 +302,5 @@ fetch("events.json")
     loadMessage.hidden = false;
     loadMessage.textContent = translations[language].loadError;
   });
+
+setTheme(theme);
