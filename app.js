@@ -14,7 +14,14 @@ const translations = {
     backToTop: "BACK TO TOP ↑",
     all: "All moments",
     count: (shown, total) => `${shown} OF ${total} MOMENTS`,
-    categories: { civilization: "Civilization", science: "Science", conflict: "Conflict", culture: "Culture" },
+    categories: {
+      civilization: "Civilization",
+      science: "Science",
+      conflict: "Conflict",
+      culture: "Culture",
+      "dutch-history": "Dutch history",
+      "family-birthdays": "Family birthdays"
+    },
     loadError: "The timeline could not be loaded. Check that events.json is available and valid.",
     themeLabel: "Choose color theme",
     lightMode: "Light",
@@ -38,7 +45,14 @@ const translations = {
     backToTop: "TERUG NAAR BOVEN ↑",
     all: "Alle momenten",
     count: (shown, total) => `${shown} VAN ${total} MOMENTEN`,
-    categories: { civilization: "Beschaving", science: "Wetenschap", conflict: "Conflict", culture: "Cultuur" },
+    categories: {
+      civilization: "Beschaving",
+      science: "Wetenschap",
+      conflict: "Conflict",
+      culture: "Cultuur",
+      "dutch-history": "Nederlandse geschiedenis",
+      "family-birthdays": "Geboortes familie"
+    },
     loadError: "De tijdlijn kon niet worden geladen. Controleer of events.json beschikbaar en geldig is.",
     themeLabel: "Kleurenthema kiezen",
     lightMode: "Licht",

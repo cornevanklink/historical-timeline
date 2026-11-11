@@ -53,4 +53,4 @@ For an event that spans a period, include both dates:
 }
 ```
 
-Events are displayed chronologically, with larger time gaps shown as additional vertical space. The scale is compressed to keep long historical spans readable. Year-only events format negative years as BCE or v.Chr.; dated events show localized dates. The light/dark theme can be selected in the header and is saved in the browser. Available categories are `civilization`, `science`, `conflict`, and `culture`.
+Events are displayed chronologically, with larger time gaps shown as additional vertical space. The scale is compressed to keep long historical spans readable. Year-only events format negative years as BCE or v.Chr.; dated events show localized dates. The light/dark theme can be selected in the header and is saved in the browser. Available categories are `civilization`, `science`, `conflict`, `culture`, `dutch-history`, and `family-birthdays`.

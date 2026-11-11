@@ -96,6 +96,42 @@
     }
   },
   {
+    "date": "1579-01-23",
+    "category": "dutch-history",
+    "title": {
+      "nl": "De Unie van Utrecht",
+      "en": "The Union of Utrecht"
+    },
+    "summary": {
+      "nl": "Noordelijke Nederlandse gewesten sluiten een verbond dat de basis legt voor hun gezamenlijke verzet tegen de Spaanse overheersing.",
+      "en": "Northern Dutch provinces form an alliance that becomes the foundation for their united resistance to Spanish rule."
+    }
+  },
+  {
+    "date": "1581-07-26",
+    "category": "dutch-history",
+    "title": {
+      "nl": "De Acte van Verlatinghe",
+      "en": "The Act of Abjuration"
+    },
+    "summary": {
+      "nl": "De Staten-Generaal verklaren dat de Nederlandse gewesten Filips II niet langer als hun vorst erkennen.",
+      "en": "The States General declare that the Dutch provinces no longer recognize Philip II as their ruler."
+    }
+  },
+  {
+    "date": "1648-01-30",
+    "category": "dutch-history",
+    "title": {
+      "nl": "De Vrede van Münster wordt getekend",
+      "en": "The Peace of Münster is signed"
+    },
+    "summary": {
+      "nl": "Spanje en de Republiek der Zeven Verenigde Nederlanden tekenen vrede; Spanje erkent de onafhankelijkheid van de Republiek.",
+      "en": "Spain and the Dutch Republic sign a peace treaty, with Spain recognizing the Republic's independence."
+    }
+  },
+  {
     "year": 1776,
     "category": "conflict",
     "title": {
@@ -120,6 +156,18 @@
     }
   },
   {
+    "date": "1815-03-16",
+    "category": "dutch-history",
+    "title": {
+      "nl": "Het Koninkrijk der Nederlanden wordt uitgeroepen",
+      "en": "The Kingdom of the Netherlands is proclaimed"
+    },
+    "summary": {
+      "nl": "Willem I neemt de titel van koning aan en wordt het staatshoofd van het nieuwe Koninkrijk der Nederlanden.",
+      "en": "William I assumes the title of king and becomes head of state of the new Kingdom of the Netherlands."
+    }
+  },
+  {
     "date": "1914-07-28",
     "endDate": "1918-11-11",
     "category": "conflict",
@@ -130,6 +178,18 @@
     "summary": {
       "nl": "Een conflict tussen Europese mogendheden groeit uit tot een wereldoorlog die samenlevingen, grenzen en de internationale orde ingrijpend verandert.",
       "en": "A conflict among European powers becomes a world war that profoundly reshapes societies, borders and the international order."
+    }
+  },
+  {
+    "date": "1945-05-05",
+    "category": "dutch-history",
+    "title": {
+      "nl": "Bevrijdingsdag",
+      "en": "Liberation Day in the Netherlands"
+    },
+    "summary": {
+      "nl": "De Duitse capitulatie in Nederland wordt in Wageningen ondertekend en markeert het einde van de bezetting.",
+      "en": "The German surrender in the Netherlands is signed in Wageningen, marking the end of the occupation."
     }
   },
   {
@@ -169,6 +229,30 @@
     }
   },
   {
+    "date": "1991-11-02",
+    "category": "family-birthdays",
+    "title": {
+      "nl": "Geboorte van Corné",
+      "en": "Corné is born"
+    },
+    "summary": {
+      "nl": "Corné wordt geboren.",
+      "en": "Corné is born."
+    }
+  },
+  {
+    "date": "1992-10-07",
+    "category": "family-birthdays",
+    "title": {
+      "nl": "Geboorte van Judith",
+      "en": "Judith is born"
+    },
+    "summary": {
+      "nl": "Judith wordt geboren.",
+      "en": "Judith is born."
+    }
+  },
+  {
     "year": 2001,
     "category": "science",
     "title": {
@@ -190,6 +274,30 @@
     "summary": {
       "nl": "Een wereldwijde gezondheidscrisis brengt landen en gemeenschappen ingrijpend in beweging en versnelt veranderingen in werk, onderwijs en volksgezondheid.",
       "en": "A global health crisis profoundly affects countries and communities, accelerating changes in work, education and public health."
+    }
+  },
+  {
+    "date": "2020-11-13",
+    "category": "family-birthdays",
+    "title": {
+      "nl": "Geboorte van Hedwig",
+      "en": "Hedwig is born"
+    },
+    "summary": {
+      "nl": "Hedwig wordt geboren.",
+      "en": "Hedwig is born."
+    }
+  },
+  {
+    "date": "2022-10-24",
+    "category": "family-birthdays",
+    "title": {
+      "nl": "Geboorte van Jonne",
+      "en": "Jonne is born"
+    },
+    "summary": {
+      "nl": "Jonne wordt geboren.",
+      "en": "Jonne is born."
     }
   }
 ]
