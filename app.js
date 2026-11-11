@@ -215,7 +215,61 @@ function eventSortKey(event) {
 
 function spacingForGap(first, second) {
   const yearsApart = Math.max(0, (eventSortKey(second) - eventSortKey(first)) / 372);
-  return Math.min(112, Math.max(0, Math.sqrt(yearsApart) * 6 - 6));
+  return Math.min(280, Math.max(0, Math.sqrt(yearsApart) * 16 - 8));
+}
+
+function assignPeriodLanes(eventList) {
+  const laneEnds = [];
+  return eventList.map((event) => {
+    if (!event.endDate) return null;
+
+    const start = eventSortKey(event);
+    const end = eventSortKey({ date: event.endDate });
+    let lane = laneEnds.findIndex((laneEnd) => laneEnd < start);
+    if (lane === -1) lane = laneEnds.length;
+    laneEnds[lane] = end;
+    return lane;
+  });
+}
+
+let visibleEvents = [];
+
+function positionPeriodBars() {
+  const items = [...timeline.children];
+  if (items.length !== visibleEvents.length) return;
+
+  const points = items.map((item) => {
+    const dot = item.querySelector(".timeline-dot");
+    return item.offsetTop + dot.offsetTop + dot.offsetHeight / 2;
+  });
+  const startKeys = visibleEvents.map(eventSortKey);
+
+  function positionForDate(key) {
+    const nextIndex = startKeys.findIndex((startKey) => startKey >= key);
+    if (nextIndex === 0) return points[0];
+    if (nextIndex !== -1) {
+      if (startKeys[nextIndex] === key) return points[nextIndex];
+      const previousIndex = nextIndex - 1;
+      const dateSpan = startKeys[nextIndex] - startKeys[previousIndex];
+      if (dateSpan <= 0) return points[nextIndex];
+      const fraction = (key - startKeys[previousIndex]) / dateSpan;
+      return points[previousIndex] + (points[nextIndex] - points[previousIndex]) * fraction;
+    }
+
+    const lastIndex = startKeys.length - 1;
+    const yearsAfter = Math.max(0, (key - startKeys[lastIndex]) / 372);
+    return points[lastIndex] + Math.sqrt(yearsAfter) * 16;
+  }
+
+  items.forEach((item, index) => {
+    const bar = item.querySelector(".timeline-period");
+    if (!bar) return;
+    const dot = item.querySelector(".timeline-dot");
+    const start = points[index];
+    const end = positionForDate(eventSortKey({ date: visibleEvents[index].endDate }));
+    bar.style.top = `${dot.offsetTop + dot.offsetHeight / 2}px`;
+    bar.style.height = `${Math.max(3, end - start)}px`;
+  });
 }
 
 function renderEvents() {
@@ -228,12 +282,17 @@ function renderEvents() {
     })
     .sort((first, second) => eventSortKey(first) - eventSortKey(second));
 
-  timeline.replaceChildren(...matchingEvents.map((event, index) => {
+  const periodLanes = assignPeriodLanes(matchingEvents);
+  const items = matchingEvents.map((event, index) => {
     const item = document.createElement("li");
     item.className = "timeline-item";
     item.dataset.category = event.category;
     item.style.animationDelay = `${Math.min(index, 12) * 35}ms`;
     item.style.setProperty("--time-gap", `${index < matchingEvents.length - 1 ? spacingForGap(event, matchingEvents[index + 1]) : 0}px`);
+    if (event.endDate) {
+      item.style.setProperty("--period-lane-offset", `${periodLanes[index] * 6}px`);
+      item.style.setProperty("--period-lane-mobile-offset", `${periodLanes[index] * 5}px`);
+    }
 
     const dateLabel = document.createElement("div");
     dateLabel.className = "timeline-year";
@@ -261,6 +320,12 @@ function renderEvents() {
     dot.className = "timeline-dot";
     dot.setAttribute("aria-hidden", "true");
 
+    const period = event.endDate ? document.createElement("span") : null;
+    if (period) {
+      period.className = "timeline-period";
+      period.setAttribute("aria-hidden", "true");
+    }
+
     const card = document.createElement("article");
     card.className = "event-card";
     const category = document.createElement("span");
@@ -271,9 +336,13 @@ function renderEvents() {
     const summary = document.createElement("p");
     summary.textContent = event.summary[language];
     card.append(category, title, summary);
-    item.append(dateLabel, dot, card);
+    if (period) item.append(dateLabel, period, dot, card);
+    else item.append(dateLabel, dot, card);
     return item;
-  }));
+  });
+  visibleEvents = matchingEvents;
+  timeline.replaceChildren(...items);
+  positionPeriodBars();
 
   eventCount.textContent = copy.count(matchingEvents.length, events.length);
   emptyState.hidden = matchingEvents.length > 0;
@@ -294,6 +363,8 @@ searchInput.addEventListener("input", () => {
   searchTerm = searchInput.value.trim().toLocaleLowerCase(language);
   renderEvents();
 });
+
+window.addEventListener("resize", positionPeriodBars);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {

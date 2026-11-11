@@ -96,6 +96,19 @@
     }
   },
   {
+    "date": "1568-04-23",
+    "endDate": "1648-01-30",
+    "category": "dutch-history",
+    "title": {
+      "nl": "De Tachtigjarige Oorlog",
+      "en": "The Eighty Years' War"
+    },
+    "summary": {
+      "nl": "De Nederlandse Opstand tegen het Spaanse gezag duurt tot de Vrede van Münster, waarin Spanje de onafhankelijkheid van de Republiek erkent.",
+      "en": "The Dutch Revolt against Spanish rule lasts until the Peace of Münster, when Spain recognizes the Republic's independence."
+    }
+  },
+  {
     "date": "1579-01-23",
     "category": "dutch-history",
     "title": {
@@ -120,6 +133,19 @@
     }
   },
   {
+    "date": "1588-01-01",
+    "endDate": "1672-12-31",
+    "category": "dutch-history",
+    "title": {
+      "nl": "De Nederlandse Gouden Eeuw",
+      "en": "The Dutch Golden Age"
+    },
+    "summary": {
+      "nl": "Een periode van grote bloei in handel, wetenschap en kunst, in deze tijdlijn globaal weergegeven als 1588–1672.",
+      "en": "A period of flourishing trade, science and art, shown on this timeline with the conventional span of 1588–1672."
+    }
+  },
+  {
     "date": "1648-01-30",
     "category": "dutch-history",
     "title": {
@@ -129,6 +155,18 @@
     "summary": {
       "nl": "Spanje en de Republiek der Zeven Verenigde Nederlanden tekenen vrede; Spanje erkent de onafhankelijkheid van de Republiek.",
       "en": "Spain and the Dutch Republic sign a peace treaty, with Spain recognizing the Republic's independence."
+    }
+  },
+  {
+    "year": 1672,
+    "category": "dutch-history",
+    "title": {
+      "nl": "Het Rampjaar",
+      "en": "The Year of Disaster"
+    },
+    "summary": {
+      "nl": "De Republiek wordt aangevallen door Frankrijk, Engeland en de bisdommen Münster en Keulen; het jaar luidt het einde van de Gouden Eeuw in.",
+      "en": "The Republic is attacked by France, England and the bishoprics of Münster and Cologne; the year marks the end of the Dutch Golden Age."
     }
   },
   {
@@ -181,6 +219,32 @@
     }
   },
   {
+    "date": "1939-09-01",
+    "endDate": "1945-09-02",
+    "category": "conflict",
+    "title": {
+      "nl": "De Tweede Wereldoorlog",
+      "en": "The Second World War"
+    },
+    "summary": {
+      "nl": "De oorlog eindigt na ongekend verlies en verwoesting. De Verenigde Naties worden opgericht met als doel toekomstige conflicten te voorkomen.",
+      "en": "The war ends after unprecedented loss and destruction. The United Nations is founded in an effort to prevent future conflict."
+    }
+  },
+  {
+    "date": "1940-05-10",
+    "endDate": "1945-05-05",
+    "category": "dutch-history",
+    "title": {
+      "nl": "De Duitse bezetting van Nederland",
+      "en": "The German occupation of the Netherlands"
+    },
+    "summary": {
+      "nl": "Duitse troepen vallen Nederland binnen; de bezetting eindigt met de bevrijding in mei 1945.",
+      "en": "German forces invade the Netherlands; the occupation ends with liberation in May 1945."
+    }
+  },
+  {
     "date": "1945-05-05",
     "category": "dutch-history",
     "title": {
@@ -190,18 +254,6 @@
     "summary": {
       "nl": "De Duitse capitulatie in Nederland wordt in Wageningen ondertekend en markeert het einde van de bezetting.",
       "en": "The German surrender in the Netherlands is signed in Wageningen, marking the end of the occupation."
-    }
-  },
-  {
-    "year": 1945,
-    "category": "conflict",
-    "title": {
-      "nl": "Het einde van de Tweede Wereldoorlog",
-      "en": "The Second World War ends"
-    },
-    "summary": {
-      "nl": "De oorlog eindigt na ongekend verlies en verwoesting. De Verenigde Naties worden opgericht met als doel toekomstige conflicten te voorkomen.",
-      "en": "The war ends after unprecedented loss and destruction. The United Nations is founded in an effort to prevent future conflict."
     }
   },
   {
