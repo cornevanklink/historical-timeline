@@ -1,0 +1,194 @@
+[
+  {
+    "year": -3000,
+    "category": "civilization",
+    "title": {
+      "nl": "Schrift ontstaat in Mesopotamië",
+      "en": "Writing emerges in Mesopotamia"
+    },
+    "summary": {
+      "nl": "In Soemer ontstaan de eerste bekende schriftsystemen, waarmee mensen handel, verhalen en bestuur kunnen vastleggen.",
+      "en": "In Sumer, one of the earliest known writing systems takes shape, allowing people to record trade, stories and government."
+    }
+  },
+  {
+    "year": -776,
+    "category": "culture",
+    "title": {
+      "nl": "De vroegst bekende Olympische Spelen",
+      "en": "The earliest recorded Olympic Games"
+    },
+    "summary": {
+      "nl": "Atleten komen in Olympia bijeen voor sportwedstrijden die uitgroeien tot een blijvend symbool van competitie en verbondenheid.",
+      "en": "Athletes gather at Olympia for contests that grow into a lasting symbol of competition and shared identity."
+    }
+  },
+  {
+    "year": -221,
+    "category": "civilization",
+    "title": {
+      "nl": "China wordt verenigd onder de Qin-dynastie",
+      "en": "China is unified under the Qin dynasty"
+    },
+    "summary": {
+      "nl": "Qin Shi Huang verenigt de strijdende staten en legt bestuurlijke en infrastructurele fundamenten die China eeuwenlang beïnvloeden.",
+      "en": "Qin Shi Huang unites the warring states, establishing administrative and infrastructure systems that shape China for centuries."
+    }
+  },
+  {
+    "year": -27,
+    "category": "civilization",
+    "title": {
+      "nl": "Het Romeinse keizerrijk begint",
+      "en": "The Roman Empire begins"
+    },
+    "summary": {
+      "nl": "Octavianus krijgt de titel Augustus. Romeins bestuur, recht en techniek verspreiden zich over een groot deel van Europa en de Middellandse Zee.",
+      "en": "Octavian receives the title Augustus. Roman government, law and engineering spread across much of Europe and the Mediterranean."
+    }
+  },
+  {
+    "year": 622,
+    "category": "culture",
+    "title": {
+      "nl": "De Hidjra markeert het begin van de islamitische jaartelling",
+      "en": "The Hijra marks the start of the Islamic calendar"
+    },
+    "summary": {
+      "nl": "De migratie van Mohammed en zijn volgelingen van Mekka naar Medina vormt een keerpunt in de vroege geschiedenis van de islam.",
+      "en": "The migration of Muhammad and his followers from Mecca to Medina marks a turning point in the early history of Islam."
+    }
+  },
+  {
+    "year": 105,
+    "category": "science",
+    "title": {
+      "nl": "Papiermaken wordt verfijnd in China",
+      "en": "Papermaking is refined in China"
+    },
+    "summary": {
+      "nl": "Aan het Han-hof verbetert Cai Lun het papiermaakproces. Het materiaal verspreidt zich geleidelijk over de wereld en verandert de toegang tot kennis.",
+      "en": "At the Han court, Cai Lun improves the papermaking process. The material gradually travels across the world, transforming access to knowledge."
+    }
+  },
+  {
+    "year": 1440,
+    "category": "science",
+    "title": {
+      "nl": "De drukpers met losse letters verspreidt zich in Europa",
+      "en": "Movable-type printing spreads in Europe"
+    },
+    "summary": {
+      "nl": "De pers van Johannes Gutenberg maakt het mogelijk boeken sneller en op grotere schaal te produceren, met ingrijpende gevolgen voor onderwijs en ideeën.",
+      "en": "Johannes Gutenberg's press makes it possible to produce books faster and at greater scale, with far-reaching effects on learning and ideas."
+    }
+  },
+  {
+    "year": 1492,
+    "category": "civilization",
+    "title": {
+      "nl": "Columbus steekt de Atlantische Oceaan over",
+      "en": "Columbus crosses the Atlantic"
+    },
+    "summary": {
+      "nl": "De reis luidt een tijdperk van blijvend contact in tussen Europa en de Amerika's, gevolgd door verovering, kolonisatie en grote veranderingen voor inheemse volken.",
+      "en": "The voyage opens an era of lasting contact between Europe and the Americas, followed by conquest, colonization and profound change for Indigenous peoples."
+    }
+  },
+  {
+    "year": 1776,
+    "category": "conflict",
+    "title": {
+      "nl": "De Amerikaanse Onafhankelijkheidsverklaring",
+      "en": "The American Declaration of Independence"
+    },
+    "summary": {
+      "nl": "Dertien Britse koloniën verklaren zich onafhankelijk. De ideeën over rechten en zelfbestuur beïnvloeden revoluties en politieke bewegingen wereldwijd.",
+      "en": "Thirteen British colonies declare independence. Their ideas about rights and self-government influence revolutions and political movements worldwide."
+    }
+  },
+  {
+    "year": 1789,
+    "category": "conflict",
+    "title": {
+      "nl": "De Franse Revolutie begint",
+      "en": "The French Revolution begins"
+    },
+    "summary": {
+      "nl": "Een volksopstand zet de Franse monarchie op zijn kop en verspreidt nieuwe ideeën over burgerschap, gelijkheid en de macht van het volk.",
+      "en": "A popular uprising overturns the French monarchy and spreads new ideas about citizenship, equality and popular sovereignty."
+    }
+  },
+  {
+    "year": 1914,
+    "category": "conflict",
+    "title": {
+      "nl": "De Eerste Wereldoorlog breekt uit",
+      "en": "The First World War begins"
+    },
+    "summary": {
+      "nl": "Een conflict tussen Europese mogendheden groeit uit tot een wereldoorlog die samenlevingen, grenzen en de internationale orde ingrijpend verandert.",
+      "en": "A conflict among European powers becomes a world war that profoundly reshapes societies, borders and the international order."
+    }
+  },
+  {
+    "year": 1945,
+    "category": "conflict",
+    "title": {
+      "nl": "Het einde van de Tweede Wereldoorlog",
+      "en": "The Second World War ends"
+    },
+    "summary": {
+      "nl": "De oorlog eindigt na ongekend verlies en verwoesting. De Verenigde Naties worden opgericht met als doel toekomstige conflicten te voorkomen.",
+      "en": "The war ends after unprecedented loss and destruction. The United Nations is founded in an effort to prevent future conflict."
+    }
+  },
+  {
+    "year": 1969,
+    "category": "science",
+    "title": {
+      "nl": "De eerste mensen lopen op de maan",
+      "en": "The first humans walk on the Moon"
+    },
+    "summary": {
+      "nl": "De Apollo 11-astronauten Neil Armstrong en Buzz Aldrin lopen op het maanoppervlak, een mijlpaal in de ruimtevaart.",
+      "en": "Apollo 11 astronauts Neil Armstrong and Buzz Aldrin walk on the lunar surface, a defining milestone in space exploration."
+    }
+  },
+  {
+    "year": 1989,
+    "category": "conflict",
+    "title": {
+      "nl": "De Berlijnse Muur valt",
+      "en": "The Berlin Wall falls"
+    },
+    "summary": {
+      "nl": "Berlijners steken de grens over die de stad bijna drie decennia verdeelde. De gebeurtenis wordt een symbool van het einde van de Koude Oorlog.",
+      "en": "Berliners cross the barrier that divided their city for nearly three decades. The moment becomes a symbol of the Cold War's end."
+    }
+  },
+  {
+    "year": 2001,
+    "category": "science",
+    "title": {
+      "nl": "Wikipedia gaat online",
+      "en": "Wikipedia goes online"
+    },
+    "summary": {
+      "nl": "Een vrij bewerkbare online encyclopedie opent een nieuwe manier om kennis wereldwijd samen te schrijven en te delen.",
+      "en": "A freely editable online encyclopedia opens a new way to build and share knowledge across the world."
+    }
+  },
+  {
+    "year": 2020,
+    "category": "civilization",
+    "title": {
+      "nl": "De COVID-19-pandemie verandert het dagelijks leven wereldwijd",
+      "en": "The COVID-19 pandemic reshapes daily life worldwide"
+    },
+    "summary": {
+      "nl": "Een wereldwijde gezondheidscrisis brengt landen en gemeenschappen ingrijpend in beweging en versnelt veranderingen in werk, onderwijs en volksgezondheid.",
+      "en": "A global health crisis profoundly affects countries and communities, accelerating changes in work, education and public health."
+    }
+  }
+]
